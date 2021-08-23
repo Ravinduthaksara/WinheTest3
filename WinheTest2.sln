@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinheTest2", "WinheTest2\WinheTest2.csproj", "{EBDC892D-34E5-4D5C-9030-EF733DCFBC27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBDC892D-34E5-4D5C-9030-EF733DCFBC27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBDC892D-34E5-4D5C-9030-EF733DCFBC27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBDC892D-34E5-4D5C-9030-EF733DCFBC27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBDC892D-34E5-4D5C-9030-EF733DCFBC27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3416EE9-7381-4497-8FAB-FF9C9E84AD69}
+	EndGlobalSection
+EndGlobal
