@@ -25,8 +25,10 @@ namespace WinheTest2.Models
         public string CustomerEmail { get; set; }
         public string Address { get; set; }
         public string ContactNumber { get; set; }
-        public Nullable<System.DateTime> DateofBirth { get; set; }
+        public System.DateTime DateofBirth { get; set; }
         public string Gender { get; set; }
+        public Nullable<System.DateTime> CreateAt { get; set; }
+        public Nullable<System.DateTime> UpdateAt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoices { get; set; }

@@ -5,26 +5,29 @@
       <PropertyRef Name="CustomerId" />
     </Key>
     <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CustomerEmail" Type="varchar" MaxLength="50" />
     <Property Name="Address" Type="varchar" MaxLength="100" />
-    <Property Name="ContactNumber" Type="nchar" MaxLength="10" />
-    <Property Name="DateofBirth" Type="date" />
-    <Property Name="Gender" Type="char" MaxLength="1" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="50" />
+    <Property Name="DateofBirth" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateAt" Type="datetime2" Precision="7" />
+    <Property Name="UpdateAt" Type="datetime2" Precision="7" />
   </EntityType>
   <EntityType Name="Invoice">
     <Key>
       <PropertyRef Name="InvoiceNumber" />
     </Key>
     <Property Name="InvoiceNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="InvoiceDate" Type="date" />
-    <Property Name="CustomerId" Type="int" />
+    <Property Name="InvoiceDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
     <Property Name="TotalUnits" Type="int" />
     <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Discount" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="ProductId" Type="int" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
     <Property Name="Quantity" Type="int" />
     <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="UpdateAt" Type="datetime2" Precision="7" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -33,12 +36,14 @@
     <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductName" Type="varchar" MaxLength="50" />
     <Property Name="ProductDescription" Type="varchar" MaxLength="100" />
-    <Property Name="PurchasePrice" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="SellingPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PurchasePrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SellingPrice" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Quantity" Type="int" />
+    <Property Name="CreateAt" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="UpdateAt" Type="datetime2" Precision="7" />
   </EntityType>
   <Association Name="FK_Invoice_Customer">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
     <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Customer">
@@ -50,7 +55,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Invoice_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">

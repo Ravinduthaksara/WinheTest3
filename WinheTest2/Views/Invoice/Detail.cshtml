@@ -7,7 +7,7 @@
 <h2>Detail</h2>
 
 <p>
-    @Html.ActionLink("Create New", "CreateInvoice")
+    <a href="@Url.Action("CreateInvoice")" class="btn btn-primary">Create New</a>
 </p>
 <table class="table">
     <tr>
@@ -71,9 +71,8 @@
             @Html.DisplayFor(modelItem => item.UnitPrice)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.InvoiceNumber }) |
-            @Html.ActionLink("Details", "Details", new {  id=item.InvoiceNumber }) |
-            @Html.ActionLink("Delete", "Delete", new {  id=item.InvoiceNumber })
+            <a href="@Url.Action("Edit", new { id = item.InvoiceNumber })" class="btn btn-primary">Edit</a> |
+            <a href="@Url.Action("Delete", new { id = item.InvoiceNumber })" class="btn btn-danger">Delete</a>
         </td>
     </tr>
 }

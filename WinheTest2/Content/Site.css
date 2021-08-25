@@ -23,5 +23,8 @@ textarea {
     max-width: 280px;
 }
 .table{
-    background-color:#00ff21
+    background-color:#8caced
+}
+.Align{
+    text-align:right
 }

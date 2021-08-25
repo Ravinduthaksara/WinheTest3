@@ -26,6 +26,8 @@ namespace WinheTest2.Models
         public Nullable<decimal> PurchasePrice { get; set; }
         public Nullable<decimal> SellingPrice { get; set; }
         public Nullable<int> Quantity { get; set; }
+        public System.DateTime CreateAt { get; set; }
+        public Nullable<System.DateTime> UpdateAt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoices { get; set; }

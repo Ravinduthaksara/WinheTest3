@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ebf2bdd01e4944089086d8f87e6b236e" Name="Diagram1">
-        <EntityTypeShape EntityType="Winhe_ITModel.Customer" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+      <Diagram DiagramId="0527a23d87ec4403ae93d593f81ad994" Name="Diagram1">
+        <EntityTypeShape EntityType="Winhe_ITModel.Customer" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Winhe_ITModel.Invoice" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="Winhe_ITModel.Product" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Winhe_ITModel.Product" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <AssociationConnector Association="Winhe_ITModel.FK_Invoice_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="Winhe_ITModel.FK_Invoice_Product" ManuallyRouted="false" />
       </Diagram>

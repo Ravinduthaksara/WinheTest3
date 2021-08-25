@@ -15,14 +15,15 @@ namespace WinheTest2.Models
     public partial class Invoice
     {
         public int InvoiceNumber { get; set; }
-        public Nullable<System.DateTime> InvoiceDate { get; set; }
-        public Nullable<int> CustomerId { get; set; }
+        public System.DateTime InvoiceDate { get; set; }
+        public int CustomerId { get; set; }
         public Nullable<int> TotalUnits { get; set; }
         public Nullable<decimal> TotalPrice { get; set; }
         public Nullable<decimal> Discount { get; set; }
-        public Nullable<int> ProductId { get; set; }
+        public int ProductId { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
+        public Nullable<System.DateTime> UpdateAt { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Product Product { get; set; }

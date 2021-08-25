@@ -107,3 +107,4 @@ D:\Programs\Visual Studio\WinheTest2\WinheTest2\obj\Debug\WinheTest2.csproj.Core
 D:\Programs\Visual Studio\WinheTest2\WinheTest2\obj\Debug\WinheTest2.csproj.CopyComplete
 D:\Programs\Visual Studio\WinheTest2\WinheTest2\obj\Debug\WinheTest2.dll
 D:\Programs\Visual Studio\WinheTest2\WinheTest2\obj\Debug\WinheTest2.pdb
+D:\Programs\Visual Studio\WinheTest2\WinheTest2\obj\Debug\WinheTest2.csproj.AssemblyReference.cache

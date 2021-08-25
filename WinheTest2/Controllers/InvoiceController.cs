@@ -21,7 +21,7 @@ namespace WinheTest2.Controllers
             List<InvoiceModel> invoices = new List<InvoiceModel>();
             //this Invoide is representing database class(dataset or entity) 
             List<Invoice> dbinvoice;
-            using (var db = new Winhe_ITEntities())
+            using (var db = new Winhe_ITEntities1())
             {
                 dbinvoice = db.Invoices.ToList();
             }
@@ -58,17 +58,17 @@ namespace WinheTest2.Controllers
             var cusinvoice = new Invoice
             {
                 InvoiceNumber = invoiceretrieve.InvoiceNumber,
-                InvoiceDate = invoiceretrieve.InvoiceDate,
-                CustomerId=invoiceretrieve.CustomerId,
-                TotalUnits=invoiceretrieve.TotalUnits,
-                TotalPrice=invoiceretrieve.TotalPrice,
+                InvoiceDate = (DateTime)invoiceretrieve.InvoiceDate,
+                CustomerId = (int)invoiceretrieve.CustomerId,
+                TotalUnits = invoiceretrieve.TotalUnits,
+                TotalPrice = invoiceretrieve.TotalPrice,
                 Discount = invoiceretrieve.Discount,
-                ProductId = invoiceretrieve.ProductId,
+                ProductId = (int)invoiceretrieve.ProductId,
                 Quantity = invoiceretrieve.Quantity,
                 UnitPrice = invoiceretrieve.UnitPrice
 
-        };
-            using (var db = new Winhe_ITEntities())
+            };
+            using (var db = new Winhe_ITEntities1())
             {
                 db.Invoices.Add(cusinvoice);
                 db.SaveChanges();
@@ -77,5 +77,47 @@ namespace WinheTest2.Controllers
 
             return RedirectToAction("Detail");
         }
+
+        public ActionResult Edit(int id)
+        {
+            Invoice invoice = new Invoice();
+            using (var db = new Winhe_ITEntities1())
+            {
+                invoice = db.Invoices.Where(x => x.InvoiceNumber == id).First();
+
+                var modelinvoice = new InvoiceModel
+                {
+                    InvoiceNumber = invoice.InvoiceNumber,
+                    InvoiceDate = invoice.InvoiceDate,
+                    CustomerId = invoice.CustomerId,
+                    TotalUnits = invoice.TotalUnits,
+                    TotalPrice = invoice.TotalPrice,
+                    Discount = invoice.Discount,
+                    ProductId = invoice.ProductId,
+                    Quantity = invoice.Quantity,
+                    UnitPrice = invoice.UnitPrice,
+                };
+                db.Invoices.Attach(invoice);
+                db.SaveChanges();
+                return View("Edit", modelinvoice);
+            }
+
+            
+        }
+
+        public ActionResult Delete(int id)
+        {
+            using (var db = new Winhe_ITEntities1())
+            {
+
+                var removeinvoice = db.Invoices.Where(x => x.InvoiceNumber == id).First();
+                db.Invoices.Remove(removeinvoice);
+                db.SaveChanges();
+                //var list = db.Products.ToList();
+
+                return RedirectToAction("Detail");
+            }
+        }
     }
+
 }

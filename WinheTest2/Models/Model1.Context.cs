@@ -13,10 +13,10 @@ namespace WinheTest2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Winhe_ITEntities : DbContext
+    public partial class Winhe_ITEntities1 : DbContext
     {
-        public Winhe_ITEntities()
-            : base("name=Winhe_ITEntities")
+        public Winhe_ITEntities1()
+            : base("name=Winhe_ITEntities1")
         {
         }
     

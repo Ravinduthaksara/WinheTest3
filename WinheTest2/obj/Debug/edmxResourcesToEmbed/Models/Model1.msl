@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Winhe_ITModelStoreContainer" CdmEntityContainer="Winhe_ITEntities">
+  <EntityContainerMapping StorageEntityContainer="Winhe_ITModelStoreContainer" CdmEntityContainer="Winhe_ITEntities1">
     <EntitySetMapping Name="Customers">
       <EntityTypeMapping TypeName="Winhe_ITModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
@@ -11,6 +11,8 @@
           <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
           <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+          <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -26,6 +28,7 @@
           <ScalarProperty Name="ProductId" ColumnName="ProductId" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -38,6 +41,8 @@
           <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
           <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
+          <ScalarProperty Name="UpdateAt" ColumnName="UpdateAt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

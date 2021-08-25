@@ -5,12 +5,14 @@
       <PropertyRef Name="CustomerId" />
     </Key>
     <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CustomerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="ContactNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="DateofBirth" Type="DateTime" Precision="0" />
-    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateofBirth" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateAt" Type="DateTime" Precision="7" />
+    <Property Name="UpdateAt" Type="DateTime" Precision="7" />
     <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoice_Customer" FromRole="Customer" ToRole="Invoice" />
   </EntityType>
   <EntityType Name="Invoice">
@@ -18,14 +20,15 @@
       <PropertyRef Name="InvoiceNumber" />
     </Key>
     <Property Name="InvoiceNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="InvoiceDate" Type="DateTime" Precision="0" />
-    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
     <Property Name="TotalUnits" Type="Int32" />
     <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="ProductId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
     <Property Name="Quantity" Type="Int32" />
     <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="UpdateAt" Type="DateTime" Precision="7" />
     <NavigationProperty Name="Customer" Relationship="Self.FK_Invoice_Customer" FromRole="Invoice" ToRole="Customer" />
     <NavigationProperty Name="Product" Relationship="Self.FK_Invoice_Product" FromRole="Invoice" ToRole="Product" />
   </EntityType>
@@ -36,13 +39,15 @@
     <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ProductDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PurchasePrice" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="SellingPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PurchasePrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SellingPrice" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="Quantity" Type="Int32" />
+    <Property Name="CreateAt" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="UpdateAt" Type="DateTime" Precision="7" />
     <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoice_Product" FromRole="Product" ToRole="Invoice" />
   </EntityType>
   <Association Name="FK_Invoice_Customer">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
     <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Customer">
@@ -54,7 +59,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Invoice_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
     <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
@@ -65,7 +70,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Winhe_ITEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Winhe_ITEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Customers" EntityType="Self.Customer" />
     <EntitySet Name="Invoices" EntityType="Self.Invoice" />
     <EntitySet Name="Products" EntityType="Self.Product" />
