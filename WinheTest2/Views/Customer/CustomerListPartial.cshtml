@@ -1,0 +1,6 @@
+﻿@model IEnumerable<SelectListItem>
+
+@foreach (var item in Model)
+{
+    <li data-value="@item.Value" data-text="@item.Text">@item.Text</li>
+}

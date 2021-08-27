@@ -53,12 +53,12 @@ namespace WinheTest2.Controllers
             {
                 var modelcustomer = new CustomerModel
                 {
-                    CustomerName =customer.CustomerName,
-                    CustomerEmail=customer.CustomerEmail,
-                    Address=customer.Address,
-                    ContactNumber=customer.ContactNumber,
-                    DateofBirth=customer.DateofBirth,
-                    Gender=customer.Gender
+                    CustomerName = customer.CustomerName,
+                    CustomerEmail = customer.CustomerEmail,
+                    Address = customer.Address,
+                    ContactNumber = customer.ContactNumber,
+                    DateofBirth = customer.DateofBirth,
+                    Gender = customer.Gender
                 };
                 wincustomer.Add(modelcustomer);
             }
@@ -106,8 +106,17 @@ namespace WinheTest2.Controllers
 
         }
         public ActionResult Edit()
-        {            
-                return View();
+        {
+            return View();
+        }
+
+        public ActionResult GetCustomersList(string searchText)
+        {
+            using (var db = new Winhe_ITEntities1())
+            {
+                var customers = db.Customers.Where(x => x.CustomerName.Contains(searchText)).Select(y => new SelectListItem { Text = y.CustomerName, Value = y.CustomerId.ToString() });
+                return PartialView("CustomerListPartial", customers);
+            }
         }
     }
 }
