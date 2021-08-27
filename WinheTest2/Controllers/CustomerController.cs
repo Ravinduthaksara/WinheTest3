@@ -144,5 +144,16 @@ namespace WinheTest2.Controllers
             }
             return RedirectToAction("List");
         }
+
+        public ActionResult GetCustomersList(string searchText)
+        {
+            var customers = new List<SelectListItem>();
+            using (var db = new Winhe_ITEntities1())
+            {
+                customers = db.Customers.Where(x => x.CustomerName.Contains(searchText)).Select(y => new SelectListItem { Text = y.CustomerName, Value = y.CustomerId.ToString() }).ToList();
+                return PartialView("CustomerListPartial", customers);
+            }
+        }
+
     }
 }
