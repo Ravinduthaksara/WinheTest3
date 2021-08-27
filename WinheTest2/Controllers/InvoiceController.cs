@@ -49,8 +49,16 @@ namespace WinheTest2.Controllers
         {
             var invoice = new InvoiceModel();
 
+            //When you have limited no of options, you can pass it in a viewbag
+            var productList = new List<SelectListItem>();
+            using (var db = new Winhe_ITEntities1())
+            {
+                productList = db.Products.Select(x => new SelectListItem { Value = x.ProductId.ToString(), Text = x.ProductName }).ToList();
+            }
+            ViewBag.ProductList = productList;
             return View(invoice);
         }
+
 
         [HttpPost]
         public ActionResult Create(InvoiceModel invoiceretrieve)

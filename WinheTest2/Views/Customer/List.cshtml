@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CustomerName)
         </th>
         <th>
@@ -36,6 +39,9 @@
     {
 <tr>
     <td>
+        @Html.DisplayFor(modelItem => item.CustomerId)
+    </td>
+    <td>
         @Html.DisplayFor(modelItem => item.CustomerName)
     </td>
     <td>
@@ -54,7 +60,7 @@
         @Html.DisplayFor(modelItem => item.Gender)
     </td>
     <td>
-        
+
         <a href="@Url.Action("Edit",new { id = item.CustomerId })" class="btn btn-primary">Edit</a> |
         <a href="@Url.Action("Delete",new { id = item.CustomerId })" class="btn btn-danger">Delete</a>
     </td>
@@ -65,6 +71,9 @@
 </table>
 <table class="Align">
     <tr>
-        <a href="@Url.Action("Add","Customer")" class="btn btn-primary">Create New</a> |
+        <td>
+            <a href="@Url.Action("Add","Customer")" class="btn btn-primary">Create New</a>
+        </td>
+        |
     </tr>
 </table>

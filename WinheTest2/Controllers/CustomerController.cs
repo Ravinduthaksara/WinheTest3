@@ -27,6 +27,7 @@ namespace WinheTest2.Controllers
             {
                 var modelCustomer = new CustomerModel
                 {
+                    CustomerId = customer.CustomerId,
                     CustomerName = customer.CustomerName,
                     CustomerEmail = customer.CustomerEmail,
                     Address = customer.Address,
@@ -105,9 +106,43 @@ namespace WinheTest2.Controllers
 
 
         }
-        public ActionResult Edit()
-        {            
-                return View();
+        public ActionResult Edit(int id)
+        {
+            using (var db = new Winhe_ITEntities1())
+            { 
+               var editcustomer = db.Customers.Where(x => x.CustomerId == id).First();
+                Customer customer = new Customer
+                {
+                    CustomerName = editcustomer.CustomerName,
+                    CustomerEmail = editcustomer.CustomerEmail,
+                    Address = editcustomer.Address,
+                    ContactNumber = editcustomer.ContactNumber,
+                    DateofBirth = (DateTime)editcustomer.DateofBirth,
+                    Gender = editcustomer.Gender
+                };
+                return View("Edit",editcustomer);
+            }
+                             
+        }
+        public ActionResult SaveEdit(CustomerModel customerModel)
+        {
+            using (var db = new Winhe_ITEntities1())
+            {
+                Customer cusomer = new Customer
+                {
+                    CustomerName = customerModel.CustomerName,
+                    CustomerEmail = customerModel.CustomerEmail,
+                    Address = customerModel.Address,
+                    ContactNumber = customerModel.ContactNumber,
+                    DateofBirth = (DateTime)customerModel.DateofBirth,
+                    Gender = customerModel.Gender
+
+                };
+                db.Customers.Attach(cusomer);
+                db.Entry(cusomer).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            return RedirectToAction("List");
         }
     }
 }
