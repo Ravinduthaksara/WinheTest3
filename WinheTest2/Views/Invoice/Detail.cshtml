@@ -50,7 +50,7 @@
             @Html.DisplayFor(modelItem => item.InvoiceDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CustomerId)
+            @Html.DisplayFor(modelItem => item.Customer.CustomerName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TotalUnits)
@@ -62,7 +62,7 @@
             @Html.DisplayFor(modelItem => item.Discount)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductId)
+            @Html.DisplayFor(modelItem => item.Product.ProductName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Quantity)

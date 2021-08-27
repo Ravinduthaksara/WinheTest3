@@ -23,7 +23,7 @@ namespace WinheTest2.Controllers
             List<Invoice> dbinvoice;
             using (var db = new Winhe_ITEntities1())
             {
-                dbinvoice = db.Invoices.ToList();
+                dbinvoice = db.Invoices.Include("Customer").Include("Product").ToList();
             }
             foreach (var invoice in dbinvoice)
             {
@@ -35,9 +35,10 @@ namespace WinheTest2.Controllers
                     TotalUnits = invoice.TotalUnits,
                     TotalPrice = invoice.TotalPrice,
                     Discount = invoice.Discount,
-                    ProductId = invoice.ProductId,
+                    Product = invoice.Product,
                     Quantity = invoice.Quantity,
-                    UnitPrice = invoice.UnitPrice
+                    UnitPrice = invoice.UnitPrice,
+                    Customer = invoice.Customer
                 };
                 invoices.Add(modelinvoice);
             }
