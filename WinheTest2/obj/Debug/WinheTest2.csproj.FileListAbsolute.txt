@@ -213,7 +213,6 @@ C:\Users\Viraj\Source\Repos\WinheTest3\WinheTest2\bin\Microsoft.Owin.Security.Tw
 C:\Users\Viraj\Source\Repos\WinheTest3\WinheTest2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Viraj\Source\Repos\WinheTest3\WinheTest2\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Viraj\Source\Repos\WinheTest3\WinheTest2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Viraj\Source\Repos\WinheTest3\WinheTest2\obj\Debug\WinheTest2.csproj.AssemblyReference.cache
 C:\Users\Viraj\Source\Repos\WinheTest3\WinheTest2\obj\Debug\WinheTest2.csproj.CoreCompileInputs.cache
 C:\Users\Viraj\Source\Repos\WinheTest3\WinheTest2\obj\Debug\WinheTest2.csproj.CopyComplete
 C:\Users\Viraj\Source\Repos\WinheTest3\WinheTest2\obj\Debug\WinheTest2.dll
