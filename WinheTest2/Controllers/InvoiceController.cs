@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WinheTest2.Models;
-using WinheTest2.Models.ViewModels;
 
 namespace WinheTest2.Controllers
 {
@@ -54,7 +53,7 @@ namespace WinheTest2.Controllers
             var productList = new List<SelectListItem>();
             using (var db = new Winhe_ITEntities1())
             {
-                productList = db.Products.Select(x=> new SelectListItem { Value = x.ProductId.ToString(), Text = x.ProductName }).ToList();
+                productList = db.Products.Select(x => new SelectListItem { Value = x.ProductId.ToString(), Text = x.ProductName }).ToList();
             }
             ViewBag.ProductList = productList;
             return View(invoice);
