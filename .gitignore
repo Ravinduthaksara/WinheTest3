@@ -2,7 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/WinheTest2/bin/roslyn
+/WinheTest2/bin
 bin
 obj
 packages
+.vs
